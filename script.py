@@ -9,7 +9,7 @@ import requests
 #Question Notifier bot
 def telegram_bot_sendques(bot_message):
     bot_token = '8131045025:AAE9_BMb5i2pk479mubtilbSIUilPA25jWM'
-    bot_chatID = '<Chat ID>'
+    bot_chatID = '5697608903'
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + \
                 '&parse_mode=MarkdownV2&text=' + str(bot_message).replace('.', '\\.')  # Escape the dot character
     response = requests.get(send_text)
@@ -24,9 +24,9 @@ def telegram_bot_sendtext(bot_message):
     return response.json()
 
 #variables
-sub = "in <name>"
-username = "<email>"
-password = "password>"
+sub = "in Shekhar"
+username = "cheggexpert271@gmail.com"
+password = "Chegg@123"
 login_text= f" Logged {sub}"
 limit_texts = f"Limit hit {sub}"
 flag = True
