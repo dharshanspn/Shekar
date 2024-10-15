@@ -24,7 +24,7 @@ def telegram_bot_sendtext(bot_message):
     return response.json()
 
 #variables
-sub = "Nitesh"
+sub = "Shekar"
 username = "cheggexpert271@gmail.com"
 password = "Chegg@123"
 login_text= f" Logged {sub}"
