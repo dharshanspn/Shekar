@@ -64,8 +64,6 @@ while flag:
 
 telegram_bot_sendtext(login_text)
 
-
-
 # Navigate to the authoring page
 driver.get("https://expert.chegg.com/qna/authoring/answer")
 time.sleep(3)
@@ -79,37 +77,19 @@ while True:
         limit_text = f"{limit}"
 
         if limit_text != "https://expert.chegg.com/qna/authoring/answer":
-            time.sleep(3)
-            driver.get("https://expert.chegg.com/qna/authoring/answer")
-            time.sleep(3)
-            limit = driver.current_url
-            limit_text = f"{limit}"
-            if limit_text != "https://expert.chegg.com/qna/authoring/answer":
-                time.sleep(3)
-                driver.get("https://expert.chegg.com/qna/authoring/answer")
-                time.sleep(3)
-                limit = driver.current_url
-                limit_text = f"{limit}"
-                if limit_text != "https://expert.chegg.com/qna/authoring/answer":
-                    time.sleep(3)
-                    driver.get("https://expert.chegg.com/qna/authoring/answer")
-                    time.sleep(3)
-                    limit = driver.current_url
-                    limit_text = f"{limit}"
-
-                    # Define the time zone (UTC+5:30)
-                    tz = pytz.timezone('Asia/Kolkata')
-                    # Get the current time in UTC+5:30
-                    now = datetime.now(tz)
-                    # Define the target time (12:30 PM)
-                    target_time = now.replace(hour=12, minute=30, second=0, microsecond=0)
-                    # If the current time is already past 12:30 PM, set the target time to the next day
-                    if now > target_time:
-                        target_time += timedelta(days=1)
-                    # Calculate the difference in seconds
-                    n = (target_time - now).total_seconds()
-                    telegram_bot_sendtext(limit_texts)
-                    time.sleep(n)
+           # Define the time zone (UTC+5:30)
+           tz = pytz.timezone('Asia/Kolkata')
+           # Get the current time in UTC+5:30
+           now = datetime.now(tz)
+           # Define the target time (12:30 PM)
+           target_time = now.replace(hour=12, minute=30, second=0, microsecond=0)
+           # If the current time is already past 12:30 PM, set the target time to the next day
+           if now > target_time:
+               target_time += timedelta(days=1)
+           # Calculate the difference in seconds
+           n = (target_time - now).total_seconds()
+           telegram_bot_sendtest(limit_texts)
+           time.sleep(n)
 
         driver.get("https://expert.chegg.com/qna/authoring/answer")
         time.sleep(5)
@@ -121,14 +101,13 @@ while True:
             
             if i <= 1:
                 telegram_bot_sendtext(i)
-            elif i % 1000 == 0:
+            elif i % 100 == 0:
                 status = f"UP Running...  {i/10} {sub}"
                 telegram_bot_sendtext(status)
             i += 1
             
         else:
-            telegram_bot_sendques(f"{alert}")
-            telegram_bot_sendtext(f"{alert}")
+            telegram_bot_sendques(f"{sub}")
             time.sleep(720)
 
     except Exception as e:
